@@ -5,40 +5,104 @@
 class Agent < Formula
   desc "AgentOS CLI — portable AI agents with a Docker-like UX."
   homepage "https://github.com/asinha07/agentOS"
-  version "2.0.3"
+  version "2.0.7"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/asinha07/agentOS/releases/download/v2.0.3/agent_2.0.3_darwin_amd64.tar.gz"
-      sha256 "39c0b229562c339f95927cda0f9f304016015d021e67f1c961b914a7136670d6"
+      url "https://github.com/asinha07/agentOS/releases/download/v2.0.7/agent_2.0.7_darwin_amd64.tar.gz"
+      sha256 "dd08eff97a79f7660f590ae52d098072e278fa20c70a99b12c90f468784aaf09"
 
       define_method(:install) do
         bin.install "agent"
+        (etc/"agentos").mkpath
+        # write default config if missing
+        cfg = (etc/"agentos"/"application.yml")
+        if !cfg.exist?
+          cfg.write <<~EOS
+            # AgentOS default configuration (sample)
+            registry:
+              url: ""
+            models:
+              provider: "openai"
+              model: "gpt-4.1"
+            # Providers keys come from env: OPENAI_API_KEY, ANTHROPIC_API_KEY, XAI_API_KEY
+          EOS
+        end
+        (share/"agentos").mkpath
+        system "cp", "-R", "agents", (share/"agentos").to_s
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/asinha07/agentOS/releases/download/v2.0.3/agent_2.0.3_darwin_arm64.tar.gz"
-      sha256 "b7f2b25b459cfe6fc28090c9f3571660ba689e76d4dd8c05be7573e1b9098109"
+      url "https://github.com/asinha07/agentOS/releases/download/v2.0.7/agent_2.0.7_darwin_arm64.tar.gz"
+      sha256 "fa04b1cb0aceed1e761c9addf9526c4812dae2d5dd0d877580e0a7592749ef1e"
 
       define_method(:install) do
         bin.install "agent"
+        (etc/"agentos").mkpath
+        # write default config if missing
+        cfg = (etc/"agentos"/"application.yml")
+        if !cfg.exist?
+          cfg.write <<~EOS
+            # AgentOS default configuration (sample)
+            registry:
+              url: ""
+            models:
+              provider: "openai"
+              model: "gpt-4.1"
+            # Providers keys come from env: OPENAI_API_KEY, ANTHROPIC_API_KEY, XAI_API_KEY
+          EOS
+        end
+        (share/"agentos").mkpath
+        system "cp", "-R", "agents", (share/"agentos").to_s
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/asinha07/agentOS/releases/download/v2.0.3/agent_2.0.3_linux_amd64.tar.gz"
-      sha256 "7fa7bdcabac51b921f87208bcae948b6e150ade97e414bd47616d78f9f1e34ec"
+      url "https://github.com/asinha07/agentOS/releases/download/v2.0.7/agent_2.0.7_linux_amd64.tar.gz"
+      sha256 "7097e8f6a676f9105957571c226c10a5402bcf7e05e670b2c8ed04543b38fca1"
       define_method(:install) do
         bin.install "agent"
+        (etc/"agentos").mkpath
+        # write default config if missing
+        cfg = (etc/"agentos"/"application.yml")
+        if !cfg.exist?
+          cfg.write <<~EOS
+            # AgentOS default configuration (sample)
+            registry:
+              url: ""
+            models:
+              provider: "openai"
+              model: "gpt-4.1"
+            # Providers keys come from env: OPENAI_API_KEY, ANTHROPIC_API_KEY, XAI_API_KEY
+          EOS
+        end
+        (share/"agentos").mkpath
+        system "cp", "-R", "agents", (share/"agentos").to_s
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/asinha07/agentOS/releases/download/v2.0.3/agent_2.0.3_linux_arm64.tar.gz"
-      sha256 "1b97bbc508e2fac34a0e07ddb29b44739442051b86d7a73e2a1e47da625e896c"
+      url "https://github.com/asinha07/agentOS/releases/download/v2.0.7/agent_2.0.7_linux_arm64.tar.gz"
+      sha256 "9e7ec82e8acb04e761879f54b027838d4e202238c43a6fc78cf3d41727340661"
       define_method(:install) do
         bin.install "agent"
+        (etc/"agentos").mkpath
+        # write default config if missing
+        cfg = (etc/"agentos"/"application.yml")
+        if !cfg.exist?
+          cfg.write <<~EOS
+            # AgentOS default configuration (sample)
+            registry:
+              url: ""
+            models:
+              provider: "openai"
+              model: "gpt-4.1"
+            # Providers keys come from env: OPENAI_API_KEY, ANTHROPIC_API_KEY, XAI_API_KEY
+          EOS
+        end
+        (share/"agentos").mkpath
+        system "cp", "-R", "agents", (share/"agentos").to_s
       end
     end
   end
