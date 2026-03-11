@@ -5,20 +5,20 @@
 class Agent < Formula
   desc "AgentOS CLI — portable AI agents with a Docker-like UX."
   homepage "https://github.com/asinha07/agentOS"
-  version "2.0.1"
+  version "2.0.2"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/asinha07/agentOS/releases/download/v2.0.1/agent_2.0.1_darwin_amd64.tar.gz"
-      sha256 "436ab24d9179b38e5de2c036b32d0de32c8909eb3f8394cae612dbf9a2e543b6"
+      url "https://github.com/asinha07/agentOS/releases/download/v2.0.2/agent_2.0.2_darwin_amd64.tar.gz"
+      sha256 "8998389d73b1bbf5c65a7df4251b9f76d6604fcee6ed23a1f3b98386820ada78"
 
       define_method(:install) do
         bin.install "agent"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/asinha07/agentOS/releases/download/v2.0.1/agent_2.0.1_darwin_arm64.tar.gz"
-      sha256 "52c46dcb0b71e80c49b776ceb483525d899f8714a6ac7b280aa0b2564f8ad6df"
+      url "https://github.com/asinha07/agentOS/releases/download/v2.0.2/agent_2.0.2_darwin_arm64.tar.gz"
+      sha256 "9374dbf657d8515bd7707ef043842063f1dafef65f68cfce3411a79c784170dc"
 
       define_method(:install) do
         bin.install "agent"
@@ -28,15 +28,15 @@ class Agent < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/asinha07/agentOS/releases/download/v2.0.1/agent_2.0.1_linux_amd64.tar.gz"
-      sha256 "ccd82d74baf32d7cb14ce4079a9c21f068cc829a218c577ade52e3e8d8fc786a"
+      url "https://github.com/asinha07/agentOS/releases/download/v2.0.2/agent_2.0.2_linux_amd64.tar.gz"
+      sha256 "9d77ec2dc58d83ff17e195a4094c649becf5b00ae5cff57004b54a359f3cc49e"
       define_method(:install) do
         bin.install "agent"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/asinha07/agentOS/releases/download/v2.0.1/agent_2.0.1_linux_arm64.tar.gz"
-      sha256 "63109dc2444f3eaf90dbde551afbde7525f20f694361d8311df3b6610cde0c09"
+      url "https://github.com/asinha07/agentOS/releases/download/v2.0.2/agent_2.0.2_linux_arm64.tar.gz"
+      sha256 "ceca5db0250a528c4d00a5d1fd990b1ddf9992e1ba2e49e2207ac79d733e165e"
       define_method(:install) do
         bin.install "agent"
       end
