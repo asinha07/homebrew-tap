@@ -10,7 +10,7 @@ class Agent < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/asinha07/agentOS/releases/download/v0.1.4/agent_0.1.4_darwin_amd64.tar.gz"
-      sha256 "bdeb2b82c162d00fb145180dbc2854b14ec1b942fc138aaf3851bdefc7867b1e"
+      sha256 "dd2b19ee10181aa93e3025893d294994f240aef9ed6b12a705e1fc6f0402b81a"
 
       define_method(:install) do
         bin.install "agent"
@@ -18,7 +18,7 @@ class Agent < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/asinha07/agentOS/releases/download/v0.1.4/agent_0.1.4_darwin_arm64.tar.gz"
-      sha256 "362826022163f24a21366853f060a26422c424b8d79c9c6aa230390de7ba9fbf"
+      sha256 "4b41178c4dfdb2dd8dbaec03bd844ca8b18ead4ca6f35b421f00f98443f0dea0"
 
       define_method(:install) do
         bin.install "agent"
@@ -29,14 +29,14 @@ class Agent < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/asinha07/agentOS/releases/download/v0.1.4/agent_0.1.4_linux_amd64.tar.gz"
-      sha256 "377ba8269a2df17677c26f41d8117dbb579a4364f7cdba5de64164637b32bf90"
+      sha256 "59111fca8fbd5028ff3c0ecf882bb4c64577e4221b4a3eea983ed79f0b6f6555"
       define_method(:install) do
         bin.install "agent"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/asinha07/agentOS/releases/download/v0.1.4/agent_0.1.4_linux_arm64.tar.gz"
-      sha256 "376662580a97f950bc2fcde30e71e53410eadf898d99c6a701d0c068bb437756"
+      sha256 "a202ded81ad3ccc734490f24cb0e019374134e9ad082b6db121ea6f382a140b8"
       define_method(:install) do
         bin.install "agent"
       end
